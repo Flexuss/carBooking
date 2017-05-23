@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.dmitry_ivanov.viewControllers.RegistrationController">
+   <children>
+      <Button fx:id="backbtn" layoutX="277.0" layoutY="391.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="346.0" text="Back" />
+      <Button fx:id="registrationbtn" layoutX="277.0" layoutY="360.0" mnemonicParsing="false" onAction="#registration" prefHeight="31.0" prefWidth="346.0" text="Registration" />
+      <TextField fx:id="username" layoutX="277.0" layoutY="298.0" prefHeight="31.0" prefWidth="346.0" promptText="Username" />
+      <PasswordField fx:id="password" layoutX="277.0" layoutY="329.0" prefHeight="31.0" prefWidth="346.0" promptText="Password" />
+   </children>
+</Pane>

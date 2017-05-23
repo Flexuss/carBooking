@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.dmitry_ivanov.viewControllers.EditCarController">
+   <children>
+      <HBox prefHeight="31.0" prefWidth="838.0">
+         <children>
+            <TextField fx:id="model" promptText="Model" />
+            <TextField fx:id="mileage" prefHeight="31.0" prefWidth="165.0" promptText="Mileage" />
+            <TextField fx:id="power" promptText="Power" />
+            <TextField fx:id="year" promptText="Year" />
+            <TextField fx:id="cost" promptText="Cost" />
+         </children>
+      </HBox>
+      <Button fx:id="saveCarBtn" layoutY="31.0" mnemonicParsing="false" onAction="#saveCar" prefHeight="31.0" prefWidth="838.0" text="Save Car" />
+   </children>
+</Pane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.dmitry_ivanov.viewControllers.AdminHomeController">
+  <tabs>
+    <Tab text="All reservations">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="reservationsTable" prefHeight="615.0" prefWidth="900.0">
+                    
+                  </TableView>
+                  <HBox layoutX="2.0" layoutY="615.0" prefHeight="30.0" prefWidth="900.0">
+                     <children>
+                        <TextField fx:id="name" promptText="Name" />
+                        <TextField fx:id="number" promptText="Number" />
+                        <TextField fx:id="car" prefHeight="31.0" prefWidth="215.0" promptText="Car" />
+                        <TextField fx:id="issue" prefHeight="31.0" prefWidth="104.0" promptText="Issue" />
+                        <TextField fx:id="returndate" prefHeight="31.0" prefWidth="103.0" promptText="Return" />
+                        <Button fx:id="addbtn" mnemonicParsing="false" onAction="#addnew" prefHeight="31.0" prefWidth="102.0" text="Add New" />
+                     </children>
+                  </HBox>
+                  <HBox layoutY="647.0" prefHeight="35.0" prefWidth="900.0">
+                     <children>
+                        <TextField fx:id="reservationId" promptText="Reservation ID" />
+                        <Button fx:id="removeReservationBtn" mnemonicParsing="false" onAction="#removeReservation" prefHeight="31.0" prefWidth="166.0" text="Remove Reservation" />
+                        <Button fx:id="editReservationBtn" mnemonicParsing="false" onAction="#editReservation" prefHeight="31.0" prefWidth="165.0" text="Edit Reservation" />
+                        <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="382.0" text="Logout" />
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="All Cars">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="carsTable" prefHeight="618.0" prefWidth="900.0" />
+                  <HBox layoutY="616.0" prefHeight="33.0" prefWidth="900.0">
+                     <children>
+                        <TextField fx:id="carModel" prefHeight="31.0" prefWidth="135.0" promptText="Model" />
+                        <TextField fx:id="carMileage" prefHeight="31.0" prefWidth="144.0" promptText="Mileage" />
+                        <TextField fx:id="carPower" prefHeight="31.0" prefWidth="133.0" promptText="Power" />
+                        <TextField fx:id="carYear" promptText="Year" />
+                        <TextField fx:id="carCost" promptText="Cost" />
+                        <Button fx:id="addNewCarBtn" mnemonicParsing="false" onAction="#addNewCar" prefHeight="31.0" prefWidth="114.0" text="Add New" />
+                     </children>
+                  </HBox>
+                  <HBox layoutY="649.0" prefHeight="32.0" prefWidth="900.0">
+                     <children>
+                        <TextField fx:id="carId" promptText="Car ID" />
+                        <Button fx:id="removeCarBtn" mnemonicParsing="false" onAction="#removeCar" prefHeight="31.0" prefWidth="132.0" text="Remove Car" />
+                        <Button fx:id="editCarBtn" mnemonicParsing="false" onAction="#editCar" prefHeight="31.0" prefWidth="132.0" text="Edit Car" />
+                        <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="449.0" text="Logout" />
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

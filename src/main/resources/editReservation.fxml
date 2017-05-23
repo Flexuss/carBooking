@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.dmitry_ivanov.viewControllers.EditReservationController">
+   <children>
+      <HBox layoutX="-2.0" prefHeight="31.0" prefWidth="680.0">
+         <children>
+            <TextField fx:id="name" prefHeight="31.0" prefWidth="221.0" promptText="Name" />
+            <TextField fx:id="number" prefHeight="31.0" prefWidth="189.0" promptText="Number" />
+            <TextField fx:id="car" promptText="Car" />
+            <TextField fx:id="issueDate" prefHeight="31.0" prefWidth="105.0" promptText="Issue" />
+            <TextField fx:id="returnDate" prefHeight="31.0" prefWidth="96.0" promptText="Return" />
+         </children>
+      </HBox>
+      <Button fx:id="saveReservationBtn" layoutX="-2.0" layoutY="31.0" mnemonicParsing="false" onAction="#saveReservation" prefHeight="31.0" prefWidth="680.0" text="Save Reservation" />
+   </children>
+</Pane>
