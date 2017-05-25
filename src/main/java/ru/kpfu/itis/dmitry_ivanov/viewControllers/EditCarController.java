@@ -1,12 +1,14 @@
 package ru.kpfu.itis.dmitry_ivanov.viewControllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import ru.kpfu.itis.dmitry_ivanov.Validator;
 import ru.kpfu.itis.dmitry_ivanov.configurations.ConfigurationController;
 import ru.kpfu.itis.dmitry_ivanov.entity.Car;
 import ru.kpfu.itis.dmitry_ivanov.services.CarService;
@@ -20,6 +22,9 @@ public class EditCarController {
 
     @Autowired
     CarService carService;
+
+    @Autowired
+    Validator validator;
 
     @Autowired
     @Qualifier("adminHomeView")
@@ -63,6 +68,8 @@ public class EditCarController {
 
     @FXML
     public void saveCar(){
+        String result = validator.editCarValidate(model.getText(),mileage.getText(),year.getText(),power.getText(),cost.getText());
+        if(result.equals("Success")) {
         Car car = new Car(
                 model.getText(),
                 Integer.parseInt(year.getText()),
@@ -77,5 +84,12 @@ public class EditCarController {
         Stage stage = (Stage) saveCarBtn.getScene().getWindow();
         stage.getScene().setRoot(new Pane());
         stage.close();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(result);
+            alert.show();
+        }
     }
 }

@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -16,6 +13,7 @@ import javafx.stage.WindowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
+import ru.kpfu.itis.dmitry_ivanov.Validator;
 import ru.kpfu.itis.dmitry_ivanov.configurations.ConfigurationController;
 import ru.kpfu.itis.dmitry_ivanov.entity.Car;
 import ru.kpfu.itis.dmitry_ivanov.entity.Reservation;
@@ -35,6 +33,9 @@ public class AdminHomeController {
 
     @Autowired
     CarService carService;
+
+    @Autowired
+    Validator validator;
 
     @Autowired
     @Qualifier("editCarView")
@@ -139,6 +140,8 @@ public class AdminHomeController {
 
     @FXML
     public void addnew(){
+        String result = validator.rentCarValidate(name.getText(),number.getText(),car.getText(),issue.getText(),returndate.getText());
+        if(result.equals("Success")) {
         Reservation reservation = new Reservation(name.getText(),
                 number.getText(),
                 carService.getCar(car.getText()),
@@ -151,6 +154,13 @@ public class AdminHomeController {
         issue.clear();
         returndate.clear();
         refreshReservation();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(result);
+            alert.show();
+        }
     }
 
     @FXML
@@ -184,6 +194,8 @@ public class AdminHomeController {
 
     @FXML
     public void addNewCar(){
+        String result = validator.editCarValidate(carModel.getText(),carMileage.getText(),carYear.getText(),carPower.getText(),carCost.getText());
+        if(result.equals("Success")) {
         Car car = new Car(
                 carModel.getText(),
                 Integer.parseInt(carYear.getText()),
@@ -197,6 +209,13 @@ public class AdminHomeController {
         carPower.clear();
         carCost.clear();
         refreshCars();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(result);
+            alert.show();
+        }
     }
 
     public void removeCar(){

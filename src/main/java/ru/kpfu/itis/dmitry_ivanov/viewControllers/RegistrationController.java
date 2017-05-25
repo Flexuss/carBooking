@@ -1,6 +1,7 @@
 package ru.kpfu.itis.dmitry_ivanov.viewControllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,12 @@ public class RegistrationController {
             user.setPassword(passwordString);
             userService.save(user);
             back();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("User already exists");
+            alert.show();
         }
     }
 }
